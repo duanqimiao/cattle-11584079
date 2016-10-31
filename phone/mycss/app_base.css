@@ -1,0 +1,104 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    background: #f9faff;
+}
+.title_header {
+    background: #d83a39;
+    display: block;
+    padding: 0.5em 0 0 0;
+    width: 100%;
+    height: 3em;
+    color: #fff;
+}
+
+.left_back {
+    width: 27%;
+}
+.back {
+    float: left;
+    font-size: 1.3em;
+}
+.back a {
+    text-decoration: none;
+    color: #fff;
+}
+.title {
+    text-align: center;
+    font-size: 1.3em;
+    margin-right: 3.8em;
+}
+
+.tag {
+    margin-bottom: 0;
+}
+.bc-color-footer {
+    border-top: 1px solid #ececec;
+}
+.pics {
+    height: 48px;
+    width: 48px;
+    margin-bottom: 0.1em;
+    background: url("../images/sprite.png") no-repeat;
+}
+
+.bc-color-footer {
+    background-color: #fff;
+}
+.btn {
+    width: 25%;
+}
+.recomment-img {
+    background-position: 0 -96px;
+}
+.selfSelect-img {
+    background-position: 0 -336px;
+}
+.freeStock-img {
+    background-position: 0 -48px;
+}
+.my-img {
+    background-position: 0 -240px;
+}
+.nav-btn1 {
+    height: 1.5em;
+    min-width: 4em;
+    display: -webkit-box !important;
+    display: box !important;
+    position: relative;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-box-pack: center;
+    box-pack: center;
+}
+input[type="radio"]:checked+ label > div.recomment-img {
+    background-position: 0 -96px;
+}
+input[type="radio"]+ label > div.recomment-img {
+    background-position: 0 -144px;
+}
+input[type="radio"]:checked+ label > div.selfSelect-img {
+    background-position: 0 -288px;
+}
+input[type="radio"]+ label > div.selfSelect-img {
+    background-position: 0 -336px;
+}
+input[type="radio"]:checked+ label > div.freeStock-img {
+    background-position: 0 0;
+}
+input[type="radio"]+ label > div.freeStock-img {
+    background-position: 0 -48px;
+}
+input[type="radio"]:checked+ label > div.my-img {
+    background-position: 0 -192px;
+}
+input[type="radio"]+ label > div.my-img {
+    background-position: 0 -240px;
+}
+input[type="radio"]:checked+ label > div.active {
+    color: #d83a39;
+}
+input[type="radio"]+ label > div.active {
+    color: #808080;
+}

@@ -1,0 +1,47 @@
+.am-form{
+    margin: 0.5em 0.5em 0 0.5em;
+    background:#fff ;
+}
+
+.am-form input[type="text"],.am-form input[type="password"]{
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding-left:0.7em;
+    font-size: 1em;
+    color: #999;
+    height:50px;
+}
+
+.am-form input[type="text"]:focus{
+    border: none;
+    border-bottom: 2px solid #d83a39;
+}
+
+.am-form input[type="password"]:focus{
+    border: none;
+    border-bottom: 2px solid #d83a39;
+}
+
+#sms_btn{
+    height: 46px;
+}
+
+.footer{
+    margin-top: 5em;
+    display: block;
+}
+
+.register_div{
+    margin: 0.5em 1em;
+}
+
+.register_btn{
+    font-size: 1.3em;
+}
+
+.accept{
+    font-size: 0.7em;
+    color: #d83a39;
+    margin: 1em 1.3em;
+}
+

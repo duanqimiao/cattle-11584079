@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="amazeUI/css/amazeui.css"/>
+        <link rel="stylesheet" href="amazeUI/css/amazeui.flat.css"/>
+        <link rel="stylesheet" href="amazeUI/css/app.css"/>
+        <link rel="stylesheet" href="mycss/app_base.css"/>
+        <link rel="stylesheet" href="mycss/app_login.css"/>
+        <title>用户登录</title>
+    </head>
+    <body>
+        <!--头部-->
+        <div id="header" class="title_header">
+            <div class="login_title">
+                用户登录
+            </div>
+        </div>
+
+        <!--表单-->
+        <div class="login_form">
+            <form class="am-form" action="/">
+                <fieldset id="field">
+                    <div class="am-form-group">
+                        <input type="text" class="user_name" name="userName"  placeholder="请输入用户名" value="mmmmmm" >
+                    </div>
+                    <div class="am-form-group">
+                        <input type="password" class="password" name="password" placeholder="请输入密码" value="111111">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <!-- 底部-->
+        <div class="auth_footer">
+
+            <div class="checkboxFive">
+                <input type="checkbox"   id="checkboxFiveInput" name="" />
+                <label for="checkboxFiveInput"><span id="remember">记住密码</span></label>
+            </div>
+            <div class="forget">
+                <a>忘记密码？</a>
+            </div>
+            <br/>
+
+            <div class="login_div">
+                <input type="button"  id="doc-confirm-toggle" class="am-btn am-btn-danger am-btn-block am-btn-xl login_btn" value="登录" />
+            </div>
+
+            <div class="register_div">
+                <input type="button" class="am-btn am-btn-block am-btn-xl register_btn" value="没有账号？一秒注册"/>
+            </div>
+     
+        </div>
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+        <script src="myjs/jquery.min.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+            var titHeight = $('#header').offset().height;
+            //appcan.frame.open("content", "index_content.html", 0, titHeight);
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, titHeight);
+            }
+        });
+        appcan.button(".login_div", "btn-act", function() {
+            var user_name = $(".user_name").val().trim();
+            var password = $(".password").val().trim();
+            if (user_name == "" || password == "") {
+                appcan.window.openToast("请输入用户名和密码！", 3000, 5, 0);
+                return;
+            } else {
+                appcan.window.openToast("正在登录中……");
+                appcan.request.postForm($("form"), function(data) {
+                    appcan.window.closeToast();
+                    appcan.window.alert("提示", "后台返回的data数据：" + data);
+                    // appcan.window.open("app_recomment", "app_recomment.html", 10)
+                    setTimeout(function() {
+                        appcan.window.open({
+                            name : 'app_recomment',
+                            data : 'app_recomment.html',
+                        });
+                    }, 100);
+                }, function(err) {
+                    appcan.window.alert("提示", "连接服务器失败！" + err);
+                });
+            }
+        });
+        appcan.button(".register_div", "btn-act", function() {
+            appcan.window.open("app_register", "app_register.html", 10)
+        });
+    </script>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="myjs/jquery.min.js"></script>
+        <link rel="stylesheet" href="amazeUI/css/amazeui.css"/>
+        <link rel="stylesheet" href="amazeUI/css/amazeui.flat.css"/>
+        <link rel="stylesheet" href="amazeUI/css/app.css"/>
+        <link rel="stylesheet" href="mycss/app_base.css"/>
+        <link rel="stylesheet" href="mycss/app_register.css"/>
+        <title>用户注册</title>
+    </head>
+    <body>
+        <!--头部-->
+        <div id="header" class="title_header">
+            <div class="back">
+                <a><img src="images/left_back.png" class="left_back"/> 返回</a>
+            </div>
+            <div class="title">
+                用户注册
+            </div>
+        </div>
+        <!--表单-->
+        <div>
+            <form class="am-form" action="/user/regist">
+                <fieldset>
+                    <div class="am-form-group">
+                        <input type="text" class="" id="user_name" name="userName" placeholder="请输入6-20位用户名" value="mmmmmm">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="" id="pwd" name="password" placeholder="请输入6-20位密码" value="111111">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="password" class="" id="re_pwd" placeholder="请再输入一遍密码" value="111111">
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" class="" id="phone" name="phone" placeholder="请填写11位有效手机号码" value="18060191114">
+                    </div>
+
+                    <div class="am-input-group">
+                        <input type="text" class="am-form-field" name="validateCode" id="sms" placeholder="请填写短信验证码" />
+                        <span class="am-input-group-btn">
+                            <button id="sms_btn" class="am-btn am-btn-danger " type="button" >
+                                获取短信验证码
+                            </button> </span>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="auth_footer">
+            <div class="register_div">
+                <input type="button" class="am-btn am-btn-danger am-btn-block am-btn-xl register_btn" value="注册" />
+            </div>
+            <div class="accept">
+                <span>* 注册即表示已阅读，并同意《用户注册协议》</span>
+            </div>
+        </div>
+
+        <script src="js/appcan.js"></script>
+        <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+        var countdown = 60;
+        appcan.ready(function() {
+            var titHeight = $('#header').offset().height;
+            //appcan.frame.open("content", "index_content.html", 0, titHeight);
+            window.onorientationchange = window.onresize = function() {
+                appcan.frame.resize("content", 0, titHeight);
+            }
+        });
+        appcan.button(".back", "btn-act", function() {
+            appcan.window.close(-1);
+        });
+        appcan.button("#sms_btn", "btn-act", function() {
+
+            var phone = $("#phone").val().trim();
+            if (!reg.test(phone)) {
+                //不是手机号
+                appcan.window.openToast("sms:请输入有效手机号码", 3000, 5, 0);
+                return;
+            } else {
+                //请求短信接口;
+                var url = "";
+                // settime(this);
+                appcan.request.ajax({
+                    url : url,
+                    type : 'POST',
+                    data : {
+                        phone : phone
+                    },
+                    success : function(data) {
+                        //60s倒计时
+                        appcan.window.openToast("验证码已发送成功", 3000, 5, 0);
+                        settime(this);
+                    },
+                    error : function(e) {
+                        alert(e);
+                    }
+                });
+            }
+        });
+        function settime(obj) {
+            if (countdown == 0) {
+                obj.removeAttribute("disabled");
+                obj.innerHTML = "获取短信验证码";
+                countdown = 60;
+                return;
+            } else {
+                obj.innerHTML = "重新发送(" + countdown + ")";
+                obj.setAttribute("disabled", "true");
+                countdown--;
+            }
+            setTimeout(function() {
+                settime(obj)
+            }, 1000)
+        }
+
+
+        appcan.button(".register_div", "btn-act", function() {
+            var user_name = $("#user_name").val().trim();
+            var password = $("#pwd").val().trim();
+            var check_pwd = $("#re_pwd").val().trim();
+            var phone = $("#phone").val().trim();
+            var sms = $("#sms").val().trim();
+            //user_name
+            if (user_name.length < 6 || user_name.length > 20) {
+                appcan.window.openToast("请输入用户名！", 3000, 5, 0);
+                return;
+            }
+            //password
+            if (password.length < 6 || password.length > 20) {
+                appcan.window.openToast("请输入密码！", 3000, 5, 0);
+                return;
+            }
+            //check_pwd
+            if (check_pwd.length < 6 || check_pwd.length > 20) {
+                appcan.window.openToast("请输入确认密码！", 3000, 5, 0);
+                return;
+            }
+            if (password != check_pwd) {
+                appcan.window.openToast("密码不一致，请重新输入", 3000, 5, 0);
+                return;
+            }
+            //验证手机号
+            if (!reg.test(phone)) {
+                //不是手机号
+                appcan.window.openToast("请输入有效手机号码", 3000, 5, 0);
+                return;
+            }
+            //短信验证码
+            if (sms == null || sms == "") {
+                appcan.window.openToast("请输入短信验证码", 3000, 5, 0);
+                return;
+            }
+
+            if (user_name != "" && password != "" && check_pwd != "" && password == check_pwd && phone != "" && sms != "") {
+                appcan.window.openToast("正在注册……");
+                // appcan.window.evaluateScript("app_register", "appcan.window.close()");
+                appcan.request.postForm($("am-form"), function(data) {
+                    appcan.window.openToast("注册成功", 3000, 5, 0);
+                    appcan.window.alert("提示", "注册成功返回值：" + data);
+                    appcan.window.open("app_login", "app_login.html", 0);
+                }, function(err) {
+                    appcan.window.alert("提示", "连接服务器失败！" + err);
+                });
+            }
+        });
+
+    </script>
+</html>

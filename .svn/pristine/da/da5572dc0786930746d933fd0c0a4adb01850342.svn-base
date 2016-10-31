@@ -1,0 +1,107 @@
+body{
+    background: #f9faff;
+}
+#list{
+    width: 100%;
+    font-size: 1em;
+    word-spacing:8px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.btn {
+    width: 25%;
+    float:left;
+    background: #fff;
+}
+input[type="radio"]:checked+ label.buy {
+    border-bottom:  3px solid #d83a39;
+}
+input[type="radio"]+ label.buy {
+    border-bottom: none;
+}
+input[type="radio"]:checked+ label.sold {
+    border-bottom: 3px solid #d83a39;
+}
+input[type="radio"]+ label.sold{
+    border-bottom: none;
+}
+input[type="radio"]:checked+ label.position{
+    border-bottom: 3px solid #d83a39;
+}
+input[type="radio"]+ label.position{
+    border-bottom: none;
+}
+input[type="radio"]:checked+ label.news {
+    border-bottom: 3px solid #d83a39;
+}
+input[type="radio"]+ label.news{
+    border-bottom: none;
+}
+
+.date{
+    margin-top: 1em;
+    background: #fff;
+    width: 100%;
+}
+.join{  
+    padding:0.7em 0 0 0.5em;
+    height: 3em;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    color: #808080;
+}
+.join-btn{
+    font-size:0.9em;
+    clear:both;
+    background-color: #fff;
+    border: 1px solid #d83a39;
+    outline:none;  
+    font-weight:normal;
+    text-align: center;
+    padding:0.3em 0.5em 0.3em 0.5em;
+    margin-left:0.5em;
+    border-radius:25px;
+    color:  #d83a39;
+    
+}
+.data-table{
+    margin-top: 0.5em;
+}
+th{
+    font-size: 0.7em;
+    font-weight: normal;
+    color: #808080;
+}
+td{
+    font-size: 0.9em;
+}
+.code{
+   color: #808080;
+}
+.were{
+    color: #fff;
+     
+}
+.were span{
+    background:#d83a39;  
+    width: 4.5em;
+    border-radius:3px;
+}
+
+#alert {
+    height: 250px;
+    width: 450px;
+    border: 5px solid #999;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 50;
+    display: none;
+    position: relative;
+    background-color: #FFF;
+}
+
+.content {
+    margin-top: 5px;
+    margin-right: 30px;
+    margin-left: 30px;
+}

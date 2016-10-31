@@ -1,0 +1,99 @@
+.login_title{
+    text-align: center;
+    font-size:1.3em;
+}
+.login_form{
+    margin-top: 1em;
+}
+
+.am-form{
+    background:#fff ;
+}
+#field{
+    padding-bottom: 0;
+}
+.am-form input[type="text"],.am-form input[type="password"]{
+    border: none;
+    border-bottom: 2px solid #eee;
+    padding-left:0.7em;
+    font-size: 1em;
+    color: #999;
+    height:50px;
+}
+
+.am-form input[type="text"]:focus{
+    border: none;
+    border-bottom: 2px solid #d83a39;
+}
+
+.am-form input[type="password"]:focus{
+    border: none;
+    border-bottom: 2px solid #d83a39;
+}
+
+.footer{
+    margin-top: 5em;
+    display: block;
+}
+
+.checkboxFive {
+    margin-left: 1em;
+    position: relative;
+    float: left;
+}
+
+.checkboxFive input {
+    margin-top: 0.3em;
+    cursor: pointer;
+    position: absolute;
+    width: 17px;
+    height: 18px;
+    top: 0;
+    left: 0;
+    background: #eee;
+    border:1px solid #ddd;
+}
+
+.checkboxFive label{
+    margin-left: 0.5em;
+}
+
+
+
+#remember {
+    margin-left: 0.8em;
+    font-size: 0.9em;
+    font-weight: normal;
+    color: #d83a39;
+}
+
+.forget{
+    float: right;
+    margin-right: 1em;
+}
+.forget a{
+    text-decoration: none;
+    margin-left: 1em;
+    font-size: 0.9em;
+    color: #d83a39;
+}
+
+.login_btn{
+    font-size:  1.3em;
+}
+.login_div{
+    margin: 0.5em 1em;
+}
+
+.register_div{
+    margin:1em;
+}
+
+.register_btn{
+    background-color: #fff;
+    border: 1px solid #d83a39;
+    outline:none;
+    font-size: 1.3em;
+    color:  #d83a39;
+}
+

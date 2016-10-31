@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/fonts/font-awesome.min.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+        <link rel="stylesheet" href="css/appcan.icon.css">
+        <link rel="stylesheet" href="css/appcan.control.css">
+        <link rel="stylesheet" href="amazeUI/css/amazeui.css"/>
+        <link rel="stylesheet" href="amazeUI/css/amazeui.flat.css"/>
+        <link rel="stylesheet" href="amazeUI/css/app.css"/>
+        <link rel="stylesheet" href="mycss/app_recomment.css">
+    </head>
+    <body class="um-vp bc-bg" ontouchstart>
+        <div id="alert">
+            <div id="content">
+                <div>温馨提示</div>
+                <div class="tip">有一条新推荐</div>
+                <div class="btns">
+                    <div class="alert_btn"><input class="cancel" type="button" value="取消"/></div>
+                    <div class="alert_btn"><input class="look" type="button" value="查看"/></div>
+                </div>
+            </div>
+        </div>
+        <div id="list" class="ub">
+            <input class="uhide" type="radio" name="footer" id="buy" value="" checked="checked" />
+            <label for="buy" class="ub btn ub-ver ub-f1 ub-ac ub-pc buy">
+                <div class="ulev-4 tag">
+                    今日买入
+                </div> </label>
+            <input class="uhide" type="radio" name="footer" id="sold" value=""/>
+            <label for="sold" class="ub btn ub-ver ub-f1 ub-ac ub-pc sold ">
+                <div class="ulev-4 tag">
+                    今日卖出
+                </div> </label>
+            <input class="uhide" type="radio" name="footer" id="position" value=""/>
+            <label for="position" class="ub btn ub-ver ub-f1 ub-ac ub-pc position">
+                <div class="ulev-4 tag">
+                    当前持仓
+                </div> </label>
+            <input class="uhide" type="radio" name="footer" id="news" value="" />
+            <label for="news" class="ub btn ub-ver ub-f1 ub-ac ub-pc news">
+                <div class="ulev-4 tag">
+                    内参消息
+                </div> </label>
+        </div>
+        <div class="date">
+            <div class="join">
+                <span>获取实时推送及解锁标星股票</span>
+                <input type="button" class="join-btn" value="加入会员"/>
+            </div>
+            <div class="data-table">
+                <table class="am-table">
+                    <thead>
+                        <tr>
+                            <th>股票名称 / 代码</th>
+                            <th class="am-text-right">买入价格 / 涨幅</th>
+                            <th class="am-text-right">买入时间 / 推荐老师</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>奇通科技
+                            <div class="code">
+                                605574
+                            </div></td>
+                            <td class="am-text-right">26.58
+                            <div class="were">
+                                <span>+16.65%</span>
+                            </div></td>
+                            <td class="am-text-right">2012-10-01
+                            <div class="code">
+                                张老师
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td>奇通科技
+                            <div class="code">
+                                605574
+                            </div></td>
+                            <td class="am-text-right">26.58
+                            <div class="were">
+                                <span>+16.65%</span>
+                            </div></td>
+                            <td class="am-text-right">2012-10-01
+                            <div class="code">
+                                张老师
+                            </div></td>
+                        </tr>
+                        <tr>
+                            <td>奇通科技
+                            <div class="code">
+                                605574
+                            </div></td>
+                            <td class="am-text-right">26.58
+                            <div class="were">
+                                <span>+16.65%</span>
+                            </div></td>
+                            <td class="am-text-right">2012-10-01
+                            <div class="code">
+                                张老师
+                            </div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+    <script src="js/appcan.js"></script>
+    <script src="js/appcan.control.js"></script>
+    </body>
+    <script>
+        appcan.ready(function() {
+        });
+
+    </script>
+</html>
